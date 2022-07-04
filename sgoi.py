@@ -53,7 +53,7 @@ class sgoiMail():
                 elif key.value == self.reqKeys[1] and not f1: f1 = True; cnt += 1
                 elif key.value == self.reqKeys[2] and not f2: f2 = True; cnt += 1
             if f:
-                messagebox.showerror('変数ファイルエラー', '変数ファイルに禁止項目があります。\nファイルを確認してください。\n\n{}'.format(denyKey))
+                messagebox.showerror('変数ファイルエラー', '変数ファイルに禁止項目があります。\nファイルを確認してください。\n\n{}'.format(self.denyKey))
                 return False
             elif not(f0 and f1 and f2):
                 messagebox.showerror('変数ファイルエラー', '変数ファイルに必須項目がありません。\nファイルを確認してください。\n\n{}'.format(self.reqKeys))
@@ -117,7 +117,7 @@ class sgoiMail():
                 # logging.info('メール送信：{} -> responseCode:{}'.format(self.to_emails, response.status_code))
                 # logging.debug('== headers ==\n{}\n== body ==\n{}\n'.format(response.headers, response.body),)
             except Exception as e:
-                self.insertActivity('![NG] エラーが発生しました。({})'.format(response.status_code))
+                self.insertActivity('![NG] エラーが発生しました。\n')
                 # pass
 
                 # logging.warning('メール送信に失敗：{}'.format(e))
@@ -223,12 +223,12 @@ class sgoiMail():
         self.progbarVal.set(val)
 
     def txtFile_clicked(self):
-        path = filedialog.askopenfilename(filetypes=[('TXT','*.txt')])
+        path = filedialog.askopenfilename(filetypes=[('文章ファイル','*.txt')])
         self.entry_txtFile.delete(0, tk.END)
         self.entry_txtFile.insert(tk.END, path)
 
     def valFile_clicked(self):
-        path = filedialog.askopenfilename(filetypes=[('XLSX','*.xlsx')])
+        path = filedialog.askopenfilename(filetypes=[('変数ファイル','*.xlsx; *.xls')])
         self.entry_valFile.delete(0, tk.END)
         self.entry_valFile.insert(tk.END, path)
 
