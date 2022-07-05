@@ -1,6 +1,7 @@
 # SGOI - SendGrid Operation Interface
 
 from concurrent.futures import thread
+from email import message
 from dotenv import load_dotenv
 import logging
 import openpyxl
@@ -19,7 +20,7 @@ class sgoiMail():
         return '''
         ///===---
         SendGrid Operation Interface
-        @fts141            ---===///
+        v1.0.2 @fts141     ---===///
         '''
 
     def verify(self):
@@ -330,4 +331,8 @@ class sgoiMail():
 if __name__ == "__main__":
     
     load_dotenv()
+    if os.getenv('SENDGRID_API_KEY') is None:
+        messagebox.showerror('環境変数エラー', 'APIキーが見つかりませんでした。\n.env ファイルを確認してください。')
+        exit()
+
     sgoiMail().main()
