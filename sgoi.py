@@ -1,7 +1,5 @@
 # SGOI - SendGrid Operation Interface
 
-from concurrent.futures import thread
-from email import message
 from dotenv import load_dotenv
 import logging
 import openpyxl
