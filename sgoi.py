@@ -121,7 +121,7 @@ class sgoiMail():
                 # pass
 
                 # logging.warning('メール送信に失敗：{}'.format(e))
-            time.sleep(1)
+            time.sleep(0.2)
             if self.cancel: break
 
         if self.cancel:
