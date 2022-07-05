@@ -1,2 +1,1 @@
-# Change this file name env-example.txt to .env
-SENDGRID_API_KEY="API_KEY_HERE"
+SENDGRID_API_KEY='API_KEY_HERE'
